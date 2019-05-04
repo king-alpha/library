@@ -1,0 +1,29 @@
+<html lang="en">
+  <% include ./partials/head %>
+  <body>
+    <div id="root">
+      <% include ./partials/header %>
+      <div id="main-content" class="auth">
+        <form class="ui form" action="/login" method="POST">
+          <h1 class="ui header auth-header">Sign In to your account</h1>
+          <div class="field">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="username" />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="password" />
+          </div>
+          <div class="field">
+            <label
+              >Don't have an account?
+              <a href="/register">create one here </a></label
+            >
+          </div>
+          <button class="positive ui button" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <% include ./partials/footer %>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+h1,
+.auth-header {
+  text-align: center;
+}
+
+#main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 70px;
+}
+
+#header {
+  border-bottom: 1px solid #eee;
+}
+
+form {
+  min-width: 400px;
+}
+
+form div:last-child {
+  text-align: center;
+}
+
+.auth {
+  background-color: #eee;
+  padding: 15px;
+  border-radius: 4px;
+  width: 50%;
+  margin: 100px auto;
+}
+
+#files {
+  margin-top: 40px;
+}
+
+.error-page {
+  display: flex;
+  height: 500px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#upload-btn {
+  margin-top: 10px;
+}
+
+.icon {
+  cursor: pointer;
+}

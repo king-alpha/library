@@ -1,0 +1,62 @@
+<html lang="en">
+  <% include ./partials/head %>
+  <body>
+    <div id="root">
+      <% include ./partials/header %>
+      <div id="main-content" class="add-book">
+        <form
+          class="ui form"
+          action="/add-book"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="field">
+            <label>Book Title</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="eg. In the chest of a woman"
+            />
+          </div>
+          <div class="field">
+            <label>Author</label>
+            <input type="text" name="author" placeholder="eg. Shakes Sphere" />
+          </div>
+          <div class="field">
+            <label>Genre</label>
+            <input type="text" name="genre" placeholder="eg. Fiction" />
+          </div>
+          <div class="field">
+            <button
+              type="button"
+              id="file-chooser"
+              class="fluid ui primary button"
+            >
+              Choose a file
+            </button>
+            <input type="file" name="book" hidden />
+            <button type="submit" id="upload-btn" class="positive ui button">
+              upload
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <% include ./partials/footer %>
+    <script>
+      const file_button = document.getElementById('file-chooser');
+
+      file_button.addEventListener('click', function(event) {
+        event.target.parentElement.children[1].click();
+      });
+
+      document
+        .getElementsByName('book')[0]
+        .addEventListener('change', function(event) {
+          let file = event.target.files[0];
+
+          file_button.innerHTML = file ? file.name : 'Choose a file';
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<html lang="en">
+  <% include ./partials/head %>
+  <body>
+    <div id="root">
+      <% include ./partials/header %>
+      <div id="main-content" class="error-page">
+        <div class="ui negative message transition">
+          <div class="header">
+            Oops, something went wrong
+          </div>
+          <p><%= error.message %></p>
+        </div>
+        <button id="back" class="primary ui button">Go back</button>
+      </div>
+    </div>
+    <script>
+      document.getElementById('back').addEventListener('click', function(e) {
+        window.history.back();
+      });
+    </script>
+    <% include ./partials/footer %>
+  </body>
+</html>

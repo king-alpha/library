@@ -1,0 +1,48 @@
+<html lang="en">
+  <% include ./partials/head %>
+  <body>
+    <div id="root">
+      <% include ./partials/header %>
+      <div id="main-content" class="search">
+        <h1>Welcome <%= (user) ? user.username : 'home' %></h1>
+        <div id="files">
+          <h3>Search results for "<%=query %>"</h3>
+          <div class="ui middle aligned divided list">
+            <% books.forEach((book) => { %>
+            <div class="item">
+              <% if (user && String(user._id) === String(book._owner._id)) { %>
+              <div class="right floated content">
+                <a href="/edit/<%= book._id %>">
+                  <i
+                    title="edit"
+                    class="blue circular pencil alternate icon"
+                  ></i>
+                </a>
+                <a href="/remove/<%= book._id %>">
+                  <i
+                    title="remove"
+                    class="red circular trash alternate outline icon"
+                  ></i
+                ></a>
+              </div>
+              <% } %>
+              <i class="file alternate outline icon"></i>
+              <div class="content">
+                <a class="header" target="_blank" href="/book/<%= book._id %>">
+                  <%= book.title %>
+                </a>
+                <div class="description">
+                  by <%= book.author || 'N/A' %> &nbsp; &nbsp; &nbsp; &nbsp;
+                  genre: <%= book.genre || 'N/A' %> &nbsp; &nbsp; &nbsp; &nbsp;
+                  uploaded by: <%= book._owner.username %>
+                </div>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include ./partials/footer %>
+  </body>
+</html>

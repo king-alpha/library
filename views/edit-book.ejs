@@ -1,0 +1,46 @@
+<html lang="en">
+  <% include ./partials/head %>
+  <body>
+    <div id="root">
+      <% include ./partials/header %>
+      <div id="main-content" class="edit-book">
+        <form class="ui form" action="/edit/<%= book._id %>" method="POST">
+          <div class="field">
+            <label>Book Title</label>
+            <input
+              type="text"
+              name="title"
+              value="<%= book.title %>"
+              placeholder="eg. In the chest of a woman"
+            />
+          </div>
+          <div class="field">
+            <label>Author</label>
+            <input
+              type="text"
+              value="<%= book.author %>"
+              name="author"
+              placeholder="eg. Shakes Sphere"
+            />
+          </div>
+          <div class="field">
+            <label>Genre</label>
+            <input
+              type="text"
+              value="<%= book.genre %>"
+              name="genre"
+              placeholder="eg. Fiction"
+            />
+          </div>
+          <div class="field">
+            <input type="file" name="book" hidden />
+            <button type="submit" id="upload-btn" class="positive ui button">
+              update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <% include ./partials/footer %>
+  </body>
+</html>

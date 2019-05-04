@@ -1,0 +1,39 @@
+<div id="header">
+  <div class="ui secondary menu">
+    <a href="/catalog" class="item">
+      Home
+    </a>
+    <% if (user) {%>
+    <a href="/add-book" class="item">
+      Add a book
+    </a>
+    <% } %>
+    <div class="right menu">
+      <% if (!user) { %>
+      <a href="/login" class="ui item">
+        Login
+      </a>
+      <a href="/register" class="ui item">
+        Register
+      </a>
+      <% } %>
+      <div class="item">
+        <div class="ui icon input">
+          <input
+            type="search"
+            name="search"
+            placeholder="search by genre or title"
+          />
+          <i class="search link icon"></i>
+        </div>
+      </div>
+      <% if (user) { %>
+      <a href="/logout" class="ui item">
+        <button class="negative ui button">
+          <i class="power icon"></i>Logout
+        </button>
+      </a>
+      <% } %>
+    </div>
+  </div>
+</div>
